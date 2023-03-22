@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+    <title>Notas e Lembretes</title>
+</head>
+<body>
+    <main>
+        <form class="notes-form">
+            <input type="text" placeholder="Adicionar Lembretes" class="input-notes">
+            <button type="button">Adicionar</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nota</th>
+                    <th>Status</th>
+                    <th>Criada Em</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>tarefa inserida com js</td>
+                    <td>
+                        <select id="options">
+                            <option value="pendente">A fazer</option>
+                            <option value="em andamento">Fazendo</option>
+                            <option value="concluida">Feito</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
