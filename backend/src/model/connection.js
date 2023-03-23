@@ -1,9 +1,10 @@
 const mysql = require('mysql2/promise')
 
 const connection = mysql.createPool({
-    host: 'localhost',
+    host: '127.0.0.1',
+    port: 5500,
     user: 'root',
-    password: '1234',
+    password: '',
     database: 'lembretesApp'
 })
 
