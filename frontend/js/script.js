@@ -2,45 +2,45 @@ const tbody = document.querySelector('tbody');
 const addForm = document.querySelector('.add-form');
 const inputTask = document.querySelector('.input-task');
 
-const fetchTasks = async () => {
-  const response = await fetch('http://localhost:3333/tasks')
-  const tasks = await response.json()
-  return tasks;
+const fetchNotes = async () => {
+  const response = await fetch('http://localhost:3333/lembretes')
+  const notes = await response.json()
+  return notes;
 }
 
-const addTask = async (event) => {
+const addNotes = async (event) => {
   event.preventDefault();
 
-  const task = { title: inputTask.value };
+  const notes = { title: inputTask.value };
 
-  await fetch('http://localhost:3333/tasks', {
+  await fetch('http://localhost:3333/lembretes', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(task),
+    body: JSON.stringify(notes),
   });
 
 
-  loadTasks();
+  loadNotes();
   inputTask.value = '';
 }
 
 const deleteTask = async (id) => {
-  await fetch(`http://localhost:3333/tasks/${id}`, {
+  await fetch(`http://localhost:3333/lembretes/${id}`, {
     method: 'delete',
   });
 
-  loadTasks();
+  loadNotes();
 }
 
 const updateTask = async ({ id, title, status }) => {
 
-  await fetch(`http://localhost:3333/tasks/${id}`, {
+  await fetch(`http://localhost:3333/lembretes/${id}`, {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ title, status }),
   });
 
-  loadTasks();
+  loadNotes();
 }
 
 
@@ -131,8 +131,8 @@ const createRow = (task) => {
   return tr;
 }
 
-const loadTasks = async () => {
-  const tasks = await fetchTasks();
+const loadNotes = async () => {
+  const tasks = await fetchNotes();
 
   tbody.innerHTML = '';
 
@@ -143,6 +143,6 @@ const loadTasks = async () => {
 }
 
 
-addForm.addEventListener('submit', addTask);
+addForm.addEventListener('submit', addNotes);
 
-loadTasks();
+loadNotes();
