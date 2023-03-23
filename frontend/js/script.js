@@ -3,7 +3,7 @@ const addForm = document.querySelector(".add-form")
 const inputTask = document.querySelector(".input-task")
 
 const fetchNotes = async () => {
-  const response = await fetch("http://localhost:5500/lembretes")
+  const response = await fetch("http://localhost:3308/lembretes")
   const notes = await response.json()
   return notes
 }
@@ -13,7 +13,7 @@ const addNotes = async (event) => {
 
   const notes = { note: inputTask.value }
 
-  await fetch("http://localhost:5500/lembretes", {
+  await fetch("http://localhost:3308/lembretes", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(notes),
@@ -24,7 +24,7 @@ const addNotes = async (event) => {
 }
 
 const deleteTask = async (id) => {
-  await fetch(`http://localhost:5500/lembretes/${id}`, {
+  await fetch(`http://localhost:3308/lembretes/${id}`, {
     method: "delete",
   })
 
@@ -32,7 +32,7 @@ const deleteTask = async (id) => {
 }
 
 const updateTask = async ({ id, note, status }) => {
-  await fetch(`http://localhost:5500/lembretes/${id}`, {
+  await fetch(`http://localhost:3308/lembretes/${id}`, {
     method: "put",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ note, status }),
