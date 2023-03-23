@@ -9,15 +9,15 @@ const getAll = async () => {
 const createNote = async (notes) => {
     const {note} = notes
 
-    const createdNote = await connection.execute('INSERT INTO lembretes(note, status, created_at, updated_at ) VALUES (?, ?, ?, ?)' [note, 'pendente', datetime, datetime])
+    const createdNote = await connection.execute('INSERT INTO lembretes(note, status, deadline, created_at, updated_at ) VALUES (?, ?, ?, ?)' [note, 'pendente', datetime, datetime])
     
     return createdNote
 }
 
 const updateNote = async (id, notes) => {
-    const { note , status } = notes
+    const { note , status, deadline } = notes
 
-    const updatedNote = await connection.execute('UPDATE lembretes SET note = ?, status = ? WHERE id = ? ', [note, status, id])
+    const updatedNote = await connection.execute('UPDATE lembretes SET note = ?, status = ?, deadline = ?, WHERE id = ? ', [note, status, deadline, id])
     return updatedNote
 }
 

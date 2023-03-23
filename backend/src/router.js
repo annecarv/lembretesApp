@@ -6,8 +6,8 @@ const notesMiddleware =  require('./middlewares/notesMiddleware')
 const router = express.Router()
 
 router.get('/lembretes', notesController.getAll)
-router.post('/lembretes', notesMiddleware.validationData, notesController.createNote)
-router.put('/lembretes/:id', notesMiddleware.validationData, notesController.updateNote)
+router.post('/lembretes', notesMiddleware.validationData, notesMiddleware.validationDeadline, notesController.createNote)
+router.put('/lembretes/:id', notesMiddleware.validationData, notesMiddleware.validationDeadline, notesController.updateNote)
 router.delete('/lembretes/:id', notesController.deleteNote)
 
 module.exports = router
