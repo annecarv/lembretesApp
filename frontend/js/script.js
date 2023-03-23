@@ -76,7 +76,7 @@ const createSelect = (value) => {
 }
 
 const createRow = (note) => {
-  const { id, note, created_at, status } = note
+  const { id, note, deadline,created_at, status } = note
 
   const tr = createElement("tr")
   const tdnote = createElement("td", note)
@@ -87,7 +87,7 @@ const createRow = (note) => {
   const select = createSelect(status)
 
   select.addEventListener("change", ({ target }) =>
-    updateTask({ ...task, status: target.value })
+    updateTask({ ...note, status: target.value })
   )
 
   const editButton = createElement(
