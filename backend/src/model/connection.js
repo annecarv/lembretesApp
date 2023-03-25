@@ -1,11 +1,11 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
-const connection = mysql.createConnection({
+const connection =  mysql.createPool({
     host: "localhost",
     port: 3308,
     user: "root",
     password: "",
-    database: "lembretesapp",
+    database: "lembretes_app",
     insecureAuth: true,
     dialect: "mysql",
     multipleStatements: true,
@@ -15,6 +15,6 @@ const connection = mysql.createConnection({
         acquire: 30000,
         idle: 10000,
     },
-    })
+    }).promise()
 
-module.exports = connection;
+module.exports = connection

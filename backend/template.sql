@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS lembretes;
-USE lembretes;
+CREATE DATABASE IF NOT EXISTS lembretes_app;
+USE lembretes_app;
 
 CREATE TABLE notes (
     id INT PRIMARY KEY AUTO_INCREMENT,

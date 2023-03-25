@@ -3,7 +3,12 @@ const notesModel = require('../model/notesModel')
 const getAll = async (req, res) => {
     const notes = await notesModel.getAll()
 
-    return res.status(200).json(notes)
+    try {
+        res.status(200).json(notes)
+    } catch (e) {
+        res.status(404).console.log(e)
+    }
+
 }
 
 const createNote = async (req, res) => {
