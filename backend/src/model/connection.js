@@ -4,7 +4,7 @@ const connection =  mysql.createPool({
     host: "localhost",
     port: 3308,
     user: "root",
-    password: "",
+    password: "root",
     database: "lembretes_app",
     insecureAuth: true,
     dialect: "mysql",

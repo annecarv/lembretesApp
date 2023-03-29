@@ -11,15 +11,16 @@ Para instalar as dependencias:
 ```bash
   npm install
 ```
-    
 Para iniciar o servidor:
 
 ```bash
   npm run dev
 ```
 
-Iniciando o container no Docker:
+Criando o container no Docker:
 
 ```bash
-  docker run --name base_de_dados -e MYSQL_ROOT_PASSWORD=senha
+  docker run --name lembretes_app -e MYSQL_ROOT_PASSWORD=root -p 3308:3308 -d mysql:8.0
 ```
+
+Iniciando o container no Docker:
